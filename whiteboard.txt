@@ -1,0 +1,32 @@
+// write an algo that compresses strings. Algorithm will take a string with repeated characters and compresses them. Use a number to show how many times repeated character shows up
+// example: aaa will return 3a
+// with and without recursion. 
+
+// Input: "aaabccdddda"
+// Output: "3ab2c4da"
+
+// Psuedo code:
+// split the string, using .split("")
+// loop the the array
+// use conditional to idenify each index and compare it to the next.
+// if the indexes match then we'll want to keep track of it by adding them. 
+
+
+const compress = function(string){
+  let characters = string.split("");
+  let result = "";
+  for(let i=0; i<characters.length; i++){
+    let count = 1;
+    let character = characters[i];
+    while(i<characters.length -1 && characters[i] == characters[i+1]){
+      count ++;
+      i++;
+    } if(count > 1){
+      return
+    } else {
+      result += count + character;
+    }
+  return result;
+  }
+
+console.log(compress("aaabccdddda"))
